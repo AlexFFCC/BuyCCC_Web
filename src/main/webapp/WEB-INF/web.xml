@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" 
+version="4.0">
+  <display-name>BuyCCC_Web</display-name>
+  
+  <servlet>
+    <display-name>登入用驗證碼</display-name>
+  	<servlet-name>CaptchaServlet</servlet-name>
+  	<servlet-class>uuu.bccc.view.CaptchaServlet</servlet-class>
+  	<init-param>
+  		<param-name>len</param-name>
+  		<param-value>4</param-value>
+  	</init-param>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>CaptchaServlet</servlet-name>
+  	<url-pattern>/images/captcha.jpg</url-pattern>
+  </servlet-mapping>
+ 
+ <servlet>
+    <display-name>註冊用驗證碼</display-name>
+  	<servlet-name>RegisterCaptchaServlet</servlet-name>
+  	<servlet-class>uuu.bccc.view.CaptchaServlet</servlet-class>
+  	<init-param>
+  		<param-name>len</param-name> 
+  		<param-value>5</param-value>
+  	</init-param>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>RegisterCaptchaServlet</servlet-name>
+  	<url-pattern>/images/register_captcha.jpg</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+   <display-name>更新用驗證碼</display-name>
+  	<servlet-name>UpdateCaptchaServlet</servlet-name>
+  	<servlet-class>uuu.bccc.view.CaptchaServlet</servlet-class>
+  	<init-param>
+  		<param-name>len</param-name>
+  		<param-value>5</param-value>
+  	</init-param>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UpdateCaptchaServlet</servlet-name>
+  	<url-pattern>/images/update_captcha.jpg</url-pattern>
+  </servlet-mapping>
+  
+  
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/WEB-INF/errors/404.jsp</location>
+  </error-page>
+  
+<!--   <session-config> -->
+<!--   	<session-timeout>5</session-timeout> -->
+<!--   </session-config> -->
+  
+  
+  
+</web-app>
