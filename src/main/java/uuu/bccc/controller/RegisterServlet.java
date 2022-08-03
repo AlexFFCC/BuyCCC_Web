@@ -105,8 +105,7 @@ public class RegisterServlet extends HttpServlet {
 				service.register(c);
 				//顯示註冊成功會面
 				request.setAttribute("register", c);
-				
-				
+
 				MailService.sendHelloMailWithLogo(c);
 				
 				RequestDispatcher dispather = request.getRequestDispatcher("/register_ok.jsp");

@@ -34,7 +34,7 @@ public class UpdateCartServlet extends HttpServlet {
 		//1.讀取表單資料
 		String checkOut = request.getParameter("checkOut");
 		if(cart!=null && cart.size()>0) {
-			for(CartItem item:cart.getCartItemsSet()) {//購物車中有多少筆明細讀出來，依據getCartItemSet的來宣告前面屬性
+			for(CartItem item:cart.getCartItemsSet()) {//購物車中有多少筆明細讀出來
 				String quantity = request.getParameter("quantity"+item.hashCode());
 				String delete = request.getParameter("delete"+item.hashCode());
 				if(delete==null) {
@@ -45,7 +45,6 @@ public class UpdateCartServlet extends HttpServlet {
 						}else {
 							cart.upadte(item, q);//(產品,數量)
 						}
-						
 					}
 				}else {
 					cart.remove(item);
@@ -59,8 +58,6 @@ public class UpdateCartServlet extends HttpServlet {
 		}else {
 			response.sendRedirect(request.getContextPath()+"/member/cart.jsp");
 		}
-		
-		
 	}
 
 }

@@ -31,9 +31,7 @@ public class CreditCardCallBackServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 Customer member = (Customer)request.getSession().getAttribute("member");
-
 		 
-
 	        //1. 取得request中的parameter
 
 	        String amount = request.getParameter("amount");
@@ -76,15 +74,6 @@ public class CreditCardCallBackServlet extends HttpServlet {
 
 	        }
 
-	           
-
-	        //3. redirect to /member/orders_history.jsp (或"/member/order.jsp?orderId=" + orderId)      
-
 	        response.sendRedirect(request.getContextPath() + "/member/orders_history.jsp");
-
-	       
-
-
 	}
-
 }

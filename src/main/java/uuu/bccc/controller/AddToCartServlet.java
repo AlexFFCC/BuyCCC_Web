@@ -72,23 +72,17 @@ public class AddToCartServlet extends HttpServlet {
 				}
 			} catch (BCCCException e) {
 				this.log("加入購物車失敗",e);
-				//errorList.add("加入購物車失敗:"+e);
+
 			}
 		}else {
 			errorList.add("加入購物車productId不得為null");
-			
 		}
 		
 		this.log(errorList.toString());
 		//轉接給/member/cart.jsp
 		//內部轉交的寫法request.getRequestDispatcher("/member/cart.jsp").forward(request, response);
 		
-		
 		//外部轉交，同步請求時使用
-		//response.sendRedirect(request.getContextPath());
-		//response.sendRedirect(request.getContextPath()+"/product.jsp?productId="+productId);
-		//response.sendRedirect(request.getContextPath()+"/products_list.jsp");
-		//非同請求
 		response.sendRedirect(request.getContextPath()+"/small_cart.jsp");
 		
 	}
